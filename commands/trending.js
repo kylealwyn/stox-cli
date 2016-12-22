@@ -7,12 +7,12 @@ module.exports = () => {
     .set({
       tickers: ['.with-ticker-card@data-symbol'],
     })
-    .data((res) => {
-      if (!res.tickers || !res.tickers.length) {
+    .data((data) => {
+      if (!data.tickers || !data.tickers.length) {
         return console.log('\nCould not find any trending tickers.')
       }
 
 
-      console.log('\n'+ chalk.white.bold(res.tickers.join(' ')));
+      console.log('\n'+ chalk.white.bold(data.tickers.join(' ')));
     });
 }

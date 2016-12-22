@@ -10,22 +10,15 @@ module.exports = (ticker) => {
       percentChange: '#qwidget_percent',
       upOrDown: '#qwidget-arrow > div@class'
     })
-    .data((res) => {
-      if (!res.lastSale) {
-        return log('\nPlease use a real ticker.')
+    .data((data) => {
+      if (!data.lastSale) {
+        return console.log('\nPlease use a real ticker.')
       }
-
-      const {
-        lastSale,
-        netChange,
-        percentChange,
-        upOrDown
-      } = res;
 
       const performance = upOrDown.includes('red') ? 'red' : 'green';
       const arrow = performance === 'red' ? '⬇' : '⬆';
       const output = chalk.white.bold(
-        `\n${ticker.toUpperCase()} ${lastSale} ${chalk[performance].bold(`${arrow} ${netChange} ${percentChange}`)}`
+        `\n${ticker.toUpperCase()} ${data.lastSale} ${chalk[performance].bold(`${arrow} ${data.netChange} ${data.percentChange}`)}`
       );
 
       console.log(output);

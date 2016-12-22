@@ -8,8 +8,9 @@ module.exports =  (ticker) => {
       titles: ['#CompanyNewsCommentary_Header + ul > li > a'],
       links: ['#CompanyNewsCommentary_Header + ul > li > a@href']
     })
-    .data((res) => {
-      const { titles, links } = res;
+    .data((data) => {
+      const links = data.links;
+      const titles = data.titles;
 
       titles.forEach((title, i) => {
         console.log(chalk.white.bold(`\n${title} - ${chalk.blue(links[i])}`))
