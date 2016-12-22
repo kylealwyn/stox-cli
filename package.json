@@ -1,6 +1,6 @@
 {
   "name": "stox-cli",
-  "version": "0.5.2",
+  "version": "0.6.0",
   "description": "A command line interface to gather and analyze stock information and performance",
   "keywords": [
     "stocks",
