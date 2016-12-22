@@ -3,11 +3,18 @@
 A CLI to interface with websites that contain and display stock related information.
 
 #### Installation
-`npm install -g stox-cli`
+Ensure you have Node.js version 4+ installed. Then run the following:
+```
+$ npm install -g stox-cli
+```
 
-#### Usage & Commands
-- `stox now <ticker>`
-  - Fetches a stocks current performance on the day
+#### Usage
+```
+Usage: stox [options] [command]
 
-- `stox trending`
-  - Fetches a list of trending tickers from StockTwits
+
+  Commands:
+
+    now <ticker>  Fetches a stocks current performance on the day
+    trending      Fetches a list of trending tickers from StockTwits
+```
