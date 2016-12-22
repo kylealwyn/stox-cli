@@ -15,12 +15,12 @@ program
 
 program
   .command('now <ticker>')
-  .description('Outputs a stocks current position')
+  .description('Fetches a stocks current performance on the day')
   .action(now)
 
 program
   .command('trending')
-  .description('Displays a list of trending tickers on StockTwits')
+  .description('Fetches a list of trending tickers from StockTwits')
   .action(trending)
 
 program.parse(process.argv)
