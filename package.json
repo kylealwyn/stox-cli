@@ -7,7 +7,11 @@
     "cli"
   ],
   "author": "Kyle Alwyn <kjalwyn@gmail.com>",
-  "license": "ISC",
+  "repository": {
+    "url": "https://example.com/kylealwyn/stox-cli",
+    "type": "git"
+  },
+  "license": "MIT",
   "bin": {
     "stox": "cli.js"
   },
