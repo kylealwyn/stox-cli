@@ -15,7 +15,7 @@ module.exports = (ticker) => {
         return console.log('\nPlease use a real ticker.')
       }
 
-      const performance = upOrDown.includes('red') ? 'red' : 'green';
+      const performance = data.upOrDown.includes('red') ? 'red' : 'green';
       const arrow = performance === 'red' ? '⬇' : '⬆';
       const output = chalk.white.bold(
         `\n${ticker.toUpperCase()} ${data.lastSale} ${chalk[performance].bold(`${arrow} ${data.netChange} ${data.percentChange}`)}`
