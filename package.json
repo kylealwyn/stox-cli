@@ -1,0 +1,26 @@
+{
+  "name": "stox-cli",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bin": {
+    "stox": "stox.js"
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "files": [
+    "stox.js"
+  ],
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "cli-spinners": "^1.0.0",
+    "commander": "^2.9.0",
+    "osmosis": "^1.1.2"
+  }
+}
