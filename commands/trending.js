@@ -1,7 +1,7 @@
-import chalk from 'chalk';
-import osmosis from 'osmosis';
+const chalk = require('chalk');
+const osmosis = require('osmosis');
 
-export default () => {
+module.exports = () => {
   osmosis
     .get(`http://www.stocktwits.com`)
     .set({

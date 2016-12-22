@@ -1,7 +1,7 @@
-import chalk from 'chalk';
-import osmosis from 'osmosis';
+const chalk = require('chalk');
+const osmosis = require('osmosis');
 
-export default (ticker) => {
+module.exports =  (ticker) => {
   osmosis
     .get(`http://www.nasdaq.com/symbol/${ticker}`)
     .set({

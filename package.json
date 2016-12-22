@@ -9,7 +9,7 @@
   "author": "Kyle Alwyn <kjalwyn@gmail.com>",
   "license": "ISC",
   "bin": {
-    "stox": "index.js"
+    "stox": "cli.js"
   },
   "engines": {
     "node": ">=4"
@@ -18,15 +18,10 @@
     "test": ""
   },
   "files": [
-    ".babelrc",
-    "index.js",
-    "stox.js",
+    "cli.js",
     "commands/**"
   ],
   "dependencies": {
-    "babel-core": "^6.21.0",
-    "babel-preset-es2015": "^6.18.0",
-    "babel-register": "^6.18.0",
     "chalk": "^1.1.3",
     "cli-spinners": "^1.0.0",
     "commander": "^2.9.0",
