@@ -3,7 +3,7 @@ import osmosis from 'osmosis';
 
 export default (ticker) => {
   osmosis
-    .get(`http://www.nasdaq.com/symbol/${ticker}/real-time`)
+    .get(`http://www.nasdaq.com/symbol/${ticker}`)
     .set({
       titles: ['#CompanyNewsCommentary_Header + ul > li > a'],
       links: ['#CompanyNewsCommentary_Header + ul > li > a@href']
