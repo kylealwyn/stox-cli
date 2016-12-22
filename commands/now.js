@@ -1,7 +1,7 @@
-const chalk = require('chalk');
-const osmosis = require('osmosis');
+import chalk from 'chalk';
+import osmosis from 'osmosis';
 
-module.exports = (ticker) => {
+export default (ticker) => {
   osmosis
     .get(`http://www.nasdaq.com/symbol/${ticker}/real-time`)
     .set({
@@ -14,6 +14,7 @@ module.exports = (ticker) => {
       if (!res.lastSale) {
         return log('\nPlease use a real ticker.')
       }
+
       const {
         lastSale,
         netChange,
@@ -26,6 +27,7 @@ module.exports = (ticker) => {
       const output = chalk.white.bold(
         `\n${ticker.toUpperCase()} ${lastSale} ${chalk[performance].bold(`${arrow} ${netChange} ${percentChange}`)}`
       );
+
       console.log(output);
     });
 }
