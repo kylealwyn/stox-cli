@@ -4,6 +4,7 @@ const loader = require('../loader');
 
 module.exports = (ticker) => {
   loader.start();
+
   return osmosis
     .get(`http://www.nasdaq.com/symbol/${ticker}`)
     .set({

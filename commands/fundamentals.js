@@ -4,7 +4,11 @@ const Table = require('cli-table');
 const loader = require('../loader');
 const now = require('./now');
 
-const table = new Table()
+const table = new Table({
+  style: {
+    head: ['cyan']
+  }
+})
 
 module.exports =  (ticker) => {
   now(ticker).done(() => {
@@ -34,6 +38,7 @@ module.exports =  (ticker) => {
           table.push(obj);
         }
 
+        console.log(`\n${chalk.white('Fundamentals')}`)
         console.log(table.toString());
       })
   });

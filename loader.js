@@ -1,21 +1,14 @@
-const logUpdate = require('log-update')
-const cliSpinners = require('cli-spinners');
+const ora = require('ora')
 
-let interval;
+let spinner;
 
 module.exports = {
-  start() {
-    const spinner = cliSpinners.dots;
-    let i = 0;
-
-    interval = setInterval(() => {
-    	const frames = spinner.frames;
-    	logUpdate(`\n${frames[i = ++i % frames.length]} Loading...`);
-    }, spinner.interval);
+  start(phrase) {
+    spinner = ora(phrase || 'Loading...').start();
   },
 
   stop() {
-    clearInterval(interval);
-    logUpdate.clear();
+    spinner.stop();
+    spinner.clear();
   }
 }
