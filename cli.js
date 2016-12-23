@@ -23,7 +23,7 @@ program
 program
   .command('fundamentals <ticker>')
   .description('Fetches fundamentals for a ticker')
-  .action(fundamentals);
+  .action((ticker) => now(ticker).done(() => fundamentals(ticker)));
 
 program
   .command('headlines <ticker>')

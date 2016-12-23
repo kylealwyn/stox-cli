@@ -2,7 +2,6 @@ const chalk = require('chalk');
 const osmosis = require('osmosis');
 const Table = require('cli-table');
 const loader = require('../loader');
-const now = require('./now');
 
 const table = new Table({
   style: {
@@ -11,34 +10,32 @@ const table = new Table({
 })
 
 module.exports =  (ticker) => {
-  now(ticker).done(() => {
-    loader.start();
+  loader.start();
 
-    osmosis
-      .get(`http://finance.yahoo.com/quote/${ticker}`)
-      .set({
-        keys: ['#quote-summary tbody tr td:first-child span'],
-        values: ['#quote-summary tbody tr td:last-child']
+  osmosis
+    .get(`http://finance.yahoo.com/quote/${ticker}`)
+    .set({
+      keys: ['#quote-summary tbody tr td:first-child span'],
+      values: ['#quote-summary tbody tr td:last-child']
 
-      })
-      .data((data) => {
-        loader.stop();
+    })
+    .data((data) => {
+      loader.stop();
 
-        const keys = data.keys;
-        const values = data.values;
+      const keys = data.keys;
+      const values = data.values;
 
-        if (!keys.length || !values.length) {
-          return console.error(`Could load not fundamentals for ${ticker}`)
-        }
+      if (!keys.length || !values.length) {
+        return console.error(`Could load not fundamentals for ${ticker}`)
+      }
 
-        keys.forEach((key, index) => {
-          let obj = {};
-          obj[key] = values[index]
-          table.push(obj);
-        });
+      keys.forEach((key, index) => {
+        let obj = {};
+        obj[key] = values[index]
+        table.push(obj);
+      });
 
-        console.log(`\n${chalk.dim('Fundamentals')}`)
-        console.log(table.toString());
-      })
-  });
+      console.log(`\n${chalk.dim('Fundamentals')}`)
+      console.log(table.toString());
+    });
 }
