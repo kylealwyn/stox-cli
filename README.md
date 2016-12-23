@@ -23,3 +23,6 @@ Usage: stox [options] [command]
     headlines <ticker>     Fetches a stock's latest headlines
     trending               Fetches a list of trending tickers from StockTwits
 ```
+
+### License
+MIT
