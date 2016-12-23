@@ -4,13 +4,13 @@ A CLI to interface with websites that contain and display stock related informat
 
 ![Stox Demo](demo.gif "Stox Demo")
 
-#### Installation
+### Installation
 Ensure you have Node.js version 4+ installed. Then run the following:
 ```
 $ npm install -g stox-cli
 ```
 
-#### Usage
+### Usage
 ```
 Usage: stox [options] [command]
 
