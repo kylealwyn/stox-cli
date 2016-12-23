@@ -2,6 +2,8 @@
 
 A CLI to interface with websites that contain and display stock related information.
 
+![Stox Demo](demo.gif "Stox Demo")
+
 #### Installation
 Ensure you have Node.js version 4+ installed. Then run the following:
 ```
