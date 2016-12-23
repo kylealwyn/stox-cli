@@ -1,7 +1,9 @@
 const chalk = require('chalk');
 const osmosis = require('osmosis');
+const loader = require('../loader');
 
 module.exports = (ticker) => {
+  loader.start();
   return osmosis
     .get(`http://www.nasdaq.com/symbol/${ticker}`)
     .set({
@@ -11,8 +13,10 @@ module.exports = (ticker) => {
       upOrDown: '#qwidget-arrow > div@class'
     })
     .data((data) => {
+      loader.stop();
+
       if (!data.lastSale) {
-        return console.log('\nPlease use a real ticker.')
+        return console.error('\Ticker not found.')
       }
 
       const performance = data.upOrDown.includes('red') ? 'red' : 'green';
@@ -23,4 +27,4 @@ module.exports = (ticker) => {
 
       console.log(output);
     });
-}
+};

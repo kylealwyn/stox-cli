@@ -1,13 +1,15 @@
 const chalk = require('chalk');
 const osmosis = require('osmosis');
 const Table = require('cli-table');
-
+const loader = require('../loader');
 const now = require('./now');
 
 const table = new Table()
 
 module.exports =  (ticker) => {
   now(ticker).done(() => {
+    loader.start();
+
     osmosis
       .get(`http://www.google.com/finance?q=${ticker}`)
       .set({
@@ -24,6 +26,8 @@ module.exports =  (ticker) => {
         inst_own: '.snap-data td[data-snapfield="inst_own"] + td',
       })
       .data((data) => {
+        loader.stop();
+
         for (const key in data) {
           let obj = {};
           obj[key.replace(/_/g, ' ')] = data[key]
