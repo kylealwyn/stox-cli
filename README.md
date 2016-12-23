@@ -1,7 +1,8 @@
 ## Stox CLI
 
-A CLI to interface with websites that contain and display stock related information.
+A Node.js command line interface to query stock financial information and performance using web scraping. Built to help analyze stocks in order to make informed purchase orders. The goal is to create a robust suite of tools that mimics the approach professionals use.
 
+### Demo
 ![Stox Demo](demo.gif "Stox Demo")
 
 ### Installation
