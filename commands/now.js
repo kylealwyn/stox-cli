@@ -8,6 +8,7 @@ module.exports = (ticker) => {
   return osmosis
     .get(`http://www.nasdaq.com/symbol/${ticker}`)
     .set({
+      companyName: '#qwidget_pageheader > h1',
       lastSale: '#qwidget_lastsale',
       netChange: '#qwidget_netchange',
       percentChange: '#qwidget_percent',
@@ -22,10 +23,13 @@ module.exports = (ticker) => {
 
       const performance = data.upOrDown.includes('red') ? 'red' : 'green';
       const arrow = performance === 'red' ? '⬇' : '⬆';
-      const output = chalk.white.bold(
-        `\n${ticker.toUpperCase()} ${data.lastSale} ${chalk[performance].bold(`${arrow} ${data.netChange} ${data.percentChange}`)}`
-      );
 
-      console.log(output);
+
+      const header = chalk.dim(`${ticker.toUpperCase()} - ${data.companyName.split(',')[0]}`);
+      const metrics = chalk.bold(`${data.lastSale} ${chalk[performance].bold(`${arrow} ${data.netChange} (${data.percentChange})`)}`);
+
+      console.log('');
+      console.log(header);
+      console.log(metrics);
     });
 };

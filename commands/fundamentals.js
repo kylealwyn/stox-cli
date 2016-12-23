@@ -15,30 +15,29 @@ module.exports =  (ticker) => {
     loader.start();
 
     osmosis
-      .get(`http://www.google.com/finance?q=${ticker}`)
+      .get(`http://finance.yahoo.com/quote/${ticker}`)
       .set({
-        range: '.snap-data td[data-snapfield="range"] + td',
-        range_52week: '.snap-data td[data-snapfield="range_52week"] + td',
-        open: '.snap-data td[data-snapfield="open"] + td',
-        vol_and_avg: '.snap-data td[data-snapfield="vol_and_avg"] + td',
-        market_cap: '.snap-data td[data-snapfield="market_cap"] + td',
-        pe_ratio: '.snap-data td[data-snapfield="pe_ratio"] + td',
-        dividend_yield: '.snap-data td[data-snapfield="latest_dividend-dividend_yield"] + td',
-        eps: '.snap-data td[data-snapfield="eps"] + td',
-        shares: '.snap-data td[data-snapfield="shares"] + td',
-        beta: '.snap-data td[data-snapfield="beta"] + td',
-        inst_own: '.snap-data td[data-snapfield="inst_own"] + td',
+        keys: ['#quote-summary tbody tr td:first-child span'],
+        values: ['#quote-summary tbody tr td:last-child']
+
       })
       .data((data) => {
         loader.stop();
 
-        for (const key in data) {
-          let obj = {};
-          obj[key.replace(/_/g, ' ')] = data[key]
-          table.push(obj);
+        const keys = data.keys;
+        const values = data.values;
+
+        if (!keys.length || !values.length) {
+          return console.error(`Could load not fundamentals for ${ticker}`)
         }
 
-        console.log(`\n${chalk.white('Fundamentals')}`)
+        keys.forEach((key, index) => {
+          let obj = {};
+          obj[key] = values[index]
+          table.push(obj);
+        });
+
+        console.log(`\n${chalk.dim('Fundamentals')}`)
         console.log(table.toString());
       })
   });
