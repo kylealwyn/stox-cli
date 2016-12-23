@@ -15,7 +15,8 @@ Usage: stox [options] [command]
 
   Commands:
 
-    now <ticker>        Fetches a stocks current performance on the day
-    headlines <ticker>  Fetches the lastest headlines for a ticker
-    trending            Fetches a list of trending tickers from StockTwits
+    now <ticker>           Fetches a stock's current performance on the day
+    fundamentals <ticker>  Fetches a stock's fundamentals
+    headlines <ticker>     Fetches a stock's latest headlines
+    trending               Fetches a list of trending tickers from StockTwits
 ```

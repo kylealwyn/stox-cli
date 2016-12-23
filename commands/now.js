@@ -2,7 +2,7 @@ const chalk = require('chalk');
 const osmosis = require('osmosis');
 
 module.exports = (ticker) => {
-  osmosis
+  return osmosis
     .get(`http://www.nasdaq.com/symbol/${ticker}`)
     .set({
       lastSale: '#qwidget_lastsale',

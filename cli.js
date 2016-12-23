@@ -8,6 +8,7 @@ const pkg = require('./package.json');
 // Import commands
 const now = require('./commands/now');
 const headlines = require('./commands/headlines');
+const fundamentals = require('./commands/fundamentals');
 const trending = require('./commands/trending');
 
 program
@@ -18,6 +19,11 @@ program
   .command('now <ticker>')
   .description('Fetches a stocks current performance on the day')
   .action(now);
+
+program
+  .command('fundamentals <ticker>')
+  .description('Fetches fundamentals for a ticker')
+  .action(fundamentals);
 
 program
   .command('headlines <ticker>')
